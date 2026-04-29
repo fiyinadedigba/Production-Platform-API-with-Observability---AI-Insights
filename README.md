@@ -1,18 +1,40 @@
 # Production Platform API with Observability 🚀
 
-Overview
+## Overview
 
 This project demonstrates how to design, deploy, and operate a production-grade backend service using modern DevOps, cloud-native, and SRE practices.
+--- 
 
-It includes:
+## ⚙️ Features
 
-- CI/CD with GitHub Actions  
-- Containerization with Docker  
-- Kubernetes deployment using Helm  
-- GitOps with ArgoCD  
-- Automated image updates.
-- Observability with Prometheus & Grafana
-- AI-assisted incident analysis workflow
+### API Service
+- CRUD operations for incidents
+- JWT-based authentication
+- Input validation and error handling
+
+### DevOps & Deployment
+- CI pipeline with GitHub Actions
+- GitOps-based deployment with Argo CD
+- Automatic version rollout using image updater
+- Versioned releases via Git tags
+
+### Observability
+- Prometheus metrics:
+  - Request count
+  - Error rate
+  - Request latency (p95)
+  - AI usage and duration
+- Grafana dashboards:
+  - AI usage by severity
+  - Analysis rate
+  - Latency trends
+
+### Security
+- JWT authentication
+- Password hashing (bcrypt)
+- Rate limiting
+- Security headers (helmet)
+
 ---
 🧩 What problem this solves
 
@@ -112,8 +134,7 @@ Application is deployed as a Kubernetes Deployment with a Service for networking
 
 **Example query:
 ```txt
-sum(ai_analysis_total) by (severity
-)
+sum(ai_analysis_total) by (severity)
 ```
 ---
 
@@ -126,13 +147,13 @@ Shows AI analysis usage, latency, and system behavior in real time.
 
 ### Alerting (Email)
 
-This alerts were triggered by simulated API failures using /simulate-error.
- Alert was sent via SMTP.
+This alerts were triggered by simulated API failures using /simulate-error, and sent via SMTP.
 
 ![Alerting](docs/images/alerts.png)
 
 ![Email](docs/images/email_alert.png)
 ---
+
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -161,8 +182,9 @@ docker run -p 3000:3000 production-platform-api
 
 ```
 ### Kubernetes
-
+```txt
 Deployed via Helm + Argo CD (GitOps workflow)
+```
 
 ### Access services
 - **API**
@@ -183,56 +205,11 @@ kubectl port-forward svc/monitoring-grafana -n monitoring 3001:80
 kubectl port-forward svc/argocd-server -n argocd 8082:443
 ```
 ---
-## ✨ Key Features
-
-- Node.js API service
-- Dockerized application
-- CI pipeline with GitHub Actions
-- Container images published to GitHub Container Registry (GHCR)
-- Kubernetes deployment using Helm
-- GitOps-based delivery with ArgoCD
-- Automated image updates using ArgoCD Image Updater
-- Observability with Prometheus and Grafana
-- AI-powered analysis endpoint for system insights
----
-
 ## 🔁 Automated Image Updates
 
 The platform uses ArgoCD Image Updater to automatically detect new container image versions in GHCR and update deployments via GitOps.
 
 This removes the need for manual image tag changes and keeps deployments continuously in sync with the latest builds.
-
----
-## ⚙️ Features
-
-### API Service
-- CRUD operations for incidents
-- JWT-based authentication
-- Input validation and error handling
-
-### DevOps & Deployment
-- CI pipeline with GitHub Actions
-- GitOps-based deployment with Argo CD
-- Automatic version rollout using image updater
-- Versioned releases via Git tags
-
-### Observability
-- Prometheus metrics:
-  - Request count
-  - Error rate
-  - Request latency (p95)
-  - AI usage and duration
-- Grafana dashboards:
-  - AI usage by severity
-  - Analysis rate
-  - Latency trends
-
-### Security
-- JWT authentication
-- Password hashing (bcrypt)
-- Rate limiting
-- Security headers (helmet)
-
 ---
 
 ## 🤖 AI Incident Analysis
@@ -258,28 +235,29 @@ POST /incidents/:id/analyze
 
 ```
 ---
-📊 Observability & SRE
 
-Metrics
-- http_requests_total
-- http_request_duration_seconds
-- ai_analysis_total
-- ai_analysis_duration_seconds
-Alerts
-- High error rate
-- High latency (p95)
-- AI analysis spikes
-Failure Simulation
-- /simulate-error
-- /simulate-latency
+## 📊 Observability & SRE
 
----
+**Metrics**
+  - http_requests_total
+  - http_request_duration_seconds
+  - ai_analysis_total
+  - ai_analysis_duration_seconds
+
+**Alerts**
+  - High error rate
+  - High latency (p95)
+  - AI analysis spikes
+
+**Failure Simulation**
+  - /simulate-error
+  - /simulate-latency
 
 ## 📈 Service Level Objectives (SLOs)
 
 - Availability: 99% successful requests
 - Latency: p95 < 300ms
----
+
 ## 💥 Reliability Engineering
 
 This project includes controlled failure scenarios to test system behavior:
@@ -289,6 +267,7 @@ This project includes controlled failure scenarios to test system behavior:
 This helps validate monitoring, alerting, and response mechanisms.
 
 ---
+
 ## ⚙️ Design Decisions
 
 - **Helm**  
@@ -344,6 +323,4 @@ production-platform-lab/
 - Integrate external secrets management
 ---
 
-🧑‍💻 Author
-
-Built as a hands-on exploration of production systems, DevOps workflows, and SRE practices.
+>>Note:This was built as a hands-on exploration of production systems, DevOps workflows, and SRE practices.
