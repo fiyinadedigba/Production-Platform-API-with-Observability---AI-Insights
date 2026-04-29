@@ -206,9 +206,10 @@ kubectl port-forward svc/argocd-server -n argocd 8082:443
 ---
 ## 🔁 Automated Image Updates
 
-The platform uses ArgoCD Image Updater to automatically detect new container image versions in GHCR and update deployments via GitOps.
+The platform uses ArgoCD Image Updater to automatically detect new container image versions in GHCR and update deployments via GitOps. 
 
-This removes the need for manual image tag changes and keeps deployments continuously in sync with the latest builds.
+**This removes the need for manual image tag changes and keeps deployments continuously in sync with the latest builds.**
+
 ---
 
 ## 🤖 AI Incident Analysis
