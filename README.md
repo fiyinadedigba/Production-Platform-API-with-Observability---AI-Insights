@@ -1,6 +1,6 @@
 # Production Platform API with Observability 🚀
 
-A production-style backend service demonstrating modern DevOps, cloud-native, and SRE practices — including automated deployment, observability, alerting, and AI-assisted incident analysis.
+A production-style backend service demonstrating modern DevOps, cloud-native, and SRE practices; including automated deployment, observability, alerting, and AI-assisted incident analysis.
  
 ---
 
@@ -92,49 +92,47 @@ Grafana visualizes system health
 ---
 ## 🚀 CI/CD Pipeline
 
-![GitHub Actions](docs/images/ci-pipeline.png)
-
 Automated pipeline builds, tests, and publishes versioned Docker images.
+
+![GitHub Actions](docs/images/ci-pipeline.png)
 
 ---
 
 ## 📦 Container Registry (GHCR)
 
-![GHCR Images](docs/images/ghcr-images.png)
-
 Images are versioned (`v1.x.x`) for reproducible deployments.
+
+![GHCR Images](docs/images/ghcr-images.png)
 
 ---
 ## 🔁 GitOps Deployment (ArgoCD)
 
-![ArgoCD](docs/images/argocd-synced.png)
+ArgoCD continuously syncs the desired state from Git to Kubernetes
 
-ArgoCD continuously syncs the desired state from Git to Kubernetes.
+![ArgoCD](docs/images/argocd-synced.png)
 
 ---
 
 ## ☸️ Kubernetes Runtime
+Application is deployed as a Kubernetes Deployment with a Service for network$
 
 ![Kubernetes](docs/images/kubernetes-pods.png)
-
-Application is deployed as a Kubernetes Deployment with a Service for networking.
 
 ---
 
 ## 📊 Observability in Action
 
+**Example query:
+```txt
+sum(ai_analysis_total) by (severity)
+```
 ### Prometheus Metrics
-
 ![Prometheus](docs/images/prometheus-targets.png)
 
 #### Queries
 
 ![Prometheus](docs/images/Prometheusqueries.png)
 
-**Example query:
-```txt
-sum(ai_analysis_total) by (severity)
-```
 ---
 
 ### Grafana dashboard
@@ -142,6 +140,7 @@ sum(ai_analysis_total) by (severity)
 Shows AI analysis usage, latency, and system behavior in real time.
 
 ![Grafana](docs/images/Grafananew.png)
+
 ---
 
 ### Alerting (Email)
@@ -151,6 +150,7 @@ This alerts were triggered by simulated API failures using /simulate-error, and 
 ![Alerting](docs/images/alerts.png)
 
 ![Email](docs/images/email_alert.png)
+
 ---
 
 ## 🚀 Getting Started
