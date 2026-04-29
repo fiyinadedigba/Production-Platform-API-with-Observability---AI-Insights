@@ -3,7 +3,7 @@
 ## Overview
 
 This project demonstrates how to design, deploy, and operate a production-grade backend service using modern DevOps, cloud-native, and SRE practices.
---- 
+ 
 
 ## ⚙️ Features
 
@@ -36,7 +36,7 @@ This project demonstrates how to design, deploy, and operate a production-grade 
 - Security headers (helmet)
 
 ---
-🧩 What problem this solves
+## 🧩 What problem this solves
 
 Backend services are often easy to build but hard to operate reliably.
 
